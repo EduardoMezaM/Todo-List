@@ -1,2 +1,1 @@
-# TemplateRepos
-Template Repository 
+In this project I'll be creating a todo-list.
