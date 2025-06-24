@@ -1,10 +1,16 @@
 import { createTodo } from "./todo";
 import { createProject } from "./project";
+import { projectManager } from "./projectManager";
 
-const newTask = createTodo('Hello', 'greet some1', '2025-06-29', 'medium')
+const School = createProject('School');
+School.addTodo('Do Homework');
+School.addTodo('Study');
+School.addTodo('Complete project');
 
-console.log(newTask);
+projectManager.addProject(School);
+projectManager.setCurrentProject(1);
 
-const myProject = createProject('MyProject');
-
-console.log(myProject);
+console.log("All Projects:", projectManager.getAllProjects());
+console.log("Current Project:", projectManager.getCurrentProject().name);
+console.log("Todos in School project:");
+School.getTodos().forEach(todo => console.log(todo));
