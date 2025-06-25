@@ -1,6 +1,7 @@
 import { createTodo } from "./todo";
 import { createProject } from "./project";
 import { projectManager } from "./projectManager";
+import { renderProjects, renderCurrentProject } from "./ui";
 
 const School = createProject('School');
 School.addTodo('Do Homework');
@@ -14,3 +15,6 @@ console.log("All Projects:", projectManager.getAllProjects());
 console.log("Current Project:", projectManager.getCurrentProject().name);
 console.log("Todos in School project:");
 School.getTodos().forEach(todo => console.log(todo));
+
+renderProjects();
+renderCurrentProject();
