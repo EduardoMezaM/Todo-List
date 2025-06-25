@@ -32,15 +32,26 @@ export function renderCurrentProject() {
 
   project.getTodos().forEach(todo => {
     const li = document.createElement('li');
-    li.textContent = typeof todo === 'string' ? todo : todo.title;
+    li.textContent = todo.title;
     todoList.appendChild(li);
   });
 }
 
 export function setupProjectAddButton() {
-  const addBtn = document.getElementById('addProjectBtn');
-  addBtn.addEventListener('click', () => {
-    const name = prompt('Enter project name:');
+  const showFormBtn = document.getElementById('addProjectBtn');
+  const form = document.getElementById('projectForm');
+  const nameInput = document.getElementById('projectNameInput');
+
+  showFormBtn.addEventListener('click', () => {
+    form.style.display = 'block';
+    showFormBtn.style.display = 'none';
+    nameInput.focus();
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const name = nameInput.value.trim();
     if (!name) return;
 
     const newProject = createProject(name);
@@ -49,8 +60,13 @@ export function setupProjectAddButton() {
 
     renderProjects();
     renderCurrentProject();
+
+    nameInput.value = '';
+    form.style.display = 'none';
+    showFormBtn.style.display = 'inline-block';
   });
 }
+
 
 export function setupAddTodo() {
   const showFormBtn = document.getElementById('showTodoFormBtn');

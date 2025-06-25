@@ -1,15 +1,14 @@
 import './styles.css';
-import { createTodo } from "./todo";
+import { createTodo } from './todo';
 import { createProject } from "./project";
 import { projectManager } from "./projectManager";
-import { renderProjects, renderCurrentProject, setupAddTodo } from "./ui";
-import { setupProjectAddButton } from './ui';
+import { renderProjects, renderCurrentProject, setupAddTodo, setupProjectAddButton } from "./ui";
 
 
 const School = createProject('School');
-School.addTodo('Do Homework');
-School.addTodo('Study');
-School.addTodo('Complete project');
+School.addTodo(createTodo('Do Homework', '', '', 'normal', false));
+School.addTodo(createTodo('Study', '', '', 'normal', false));
+School.addTodo(createTodo('Complete project', '', '', 'normal', false));
 
 projectManager.addProject(School);
 projectManager.setCurrentProject(1);

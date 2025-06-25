@@ -130,3 +130,33 @@ body {
 #todoForm button[type="submit"]:hover {
   background-color: #0056b3;
 }
+
+#projectForm {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#projectNameInput {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+#projectForm button[type="submit"] {
+  padding: 10px 14px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+#projectForm button[type="submit"]:hover {
+  background-color: #218838;
+}
