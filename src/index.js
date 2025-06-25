@@ -1,7 +1,10 @@
+import './styles.css';
 import { createTodo } from "./todo";
 import { createProject } from "./project";
 import { projectManager } from "./projectManager";
-import { renderProjects, renderCurrentProject } from "./ui";
+import { renderProjects, renderCurrentProject, setupAddTodo } from "./ui";
+import { setupProjectAddButton } from './ui';
+
 
 const School = createProject('School');
 School.addTodo('Do Homework');
@@ -18,3 +21,5 @@ School.getTodos().forEach(todo => console.log(todo));
 
 renderProjects();
 renderCurrentProject();
+setupProjectAddButton();
+setupAddTodo();

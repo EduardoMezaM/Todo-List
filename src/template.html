@@ -9,11 +9,20 @@
   <div id="sidebar">
     <h2>Projects</h2>
     <ul id="projectList"></ul>
+    <button id="addProjectBtn">+ Add Project</button>
   </div>
 
   <div id="main">
     <h2 id="projectTitle">Project Title</h2>
     <ul id="todoList"></ul>
+    
+    <button id="showTodoFormBtn">Add Todo</button>
+    
+    <form id="todoForm" style="display: none;">
+        <input type="text" id="todoTitle" placeholder="Todo title" required />
+        <button type="submit">Add Todo</button>
+    </form>
+    
   </div>
 </body>
 </html>
