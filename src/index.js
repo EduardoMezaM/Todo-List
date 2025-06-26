@@ -6,12 +6,11 @@ import { renderProjects, renderCurrentProject, setupAddTodo, setupProjectAddButt
 
 
 const School = createProject('School');
-School.addTodo(createTodo('Do Homework', '', '', 'normal', false));
-School.addTodo(createTodo('Study', '', '', 'normal', false));
-School.addTodo(createTodo('Complete project', '', '', 'normal', false));
+School.addTodo(createTodo('Do Homework', 'Do your homework!', '', 'low', false));
+School.addTodo(createTodo('Study', 'Study for your exam!', '', 'normal', false));
+School.addTodo(createTodo('Complete project', 'That project is very important! Get to work!', '', 'high', false));
 
 projectManager.addProject(School);
-projectManager.setCurrentProject(1);
 
 console.log("All Projects:", projectManager.getAllProjects());
 console.log("Current Project:", projectManager.getCurrentProject().name);
