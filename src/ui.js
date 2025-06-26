@@ -30,12 +30,46 @@ export function renderCurrentProject() {
   const todoList = document.getElementById('todoList');
   todoList.innerHTML = '';
 
-  project.getTodos().forEach(todo => {
+  project.getTodos().forEach((todo, index) => {
     const li = document.createElement('li');
-    li.textContent = todo.title;
+
+    if (todo.completed) {
+      li.classList.add('todo-completed');
+    }
+
+    li.classList.add(`todo-priority-${todo.priority}`);
+
+    li.innerHTML = `
+      <div class="todo-header">
+        <input type="checkbox" ${todo.completed ? 'checked' : ''} data-index="${index}" class="complete-checkbox" />
+        <strong>${todo.title}</strong>
+        <button class="delete-todo" data-index="${index}">✖</button>
+      </div>
+      ${todo.description ? `<p>${todo.description}</p>` : ''}
+      ${todo.dueDate ? `<small>Due: ${todo.dueDate}</small>` : ''}
+    `;
+
     todoList.appendChild(li);
   });
+
+  document.querySelectorAll('.complete-checkbox').forEach(cb => {
+    cb.addEventListener('change', e => {
+      const i = e.target.dataset.index;
+      const todos = project.getTodos();
+      todos[i].completed = e.target.checked;
+      renderCurrentProject();
+    });
+  });
+
+  document.querySelectorAll('.delete-todo').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const i = e.target.dataset.index;
+      project.removeTodo(i);
+      renderCurrentProject();
+    });
+  });
 }
+
 
 export function setupProjectAddButton() {
   const showFormBtn = document.getElementById('addProjectBtn');
@@ -101,6 +135,6 @@ export function setupAddTodo() {
 
     form.style.display = 'none';
     showFormBtn.style.display = 'inline-block';
-    
+
   });
 }

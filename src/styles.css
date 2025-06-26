@@ -86,7 +86,6 @@ body {
   margin-bottom: 12px;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  border-left: 5px solid #007bff;
 }
 
 #showTodoFormBtn {
@@ -174,4 +173,53 @@ body {
 #todoForm textarea {
   resize: vertical;
   min-height: 60px;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+  color: #888;
+  opacity: 0.7;
+}
+
+.todo-priority-low {
+  border-left: 5px solid #66ff47;
+}
+.todo-priority-normal {
+  border-left: 5px solid #ffe14e;
+}
+.todo-priority-high {
+  border-left: 5px solid #dc3545;
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.todo-header input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+.delete-todo {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.delete-todo:hover {
+  color: #a71d2a;
+}
+
+#todoList p {
+  margin: 6px 0;
+}
+
+#todoDescription{
+  margin-top: 8px;;
 }
