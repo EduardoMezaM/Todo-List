@@ -8,7 +8,7 @@ export function renderProjects() {
 
   projectManager.getAllProjects().forEach((project, index) => {
     const li = document.createElement('li');
-    li.textContent = project.name;
+    li.classList.add('project-item');
 
     if (projectManager.getCurrentProject() === project) {
       li.classList.add('active-project');
@@ -19,6 +19,23 @@ export function renderProjects() {
       renderProjects();
       renderCurrentProject();
     });
+
+    const nameSpan = document.createElement('span');
+    nameSpan.textContent = project.name;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '✖';
+    deleteBtn.classList.add('delete-project-btn');
+
+    deleteBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      projectManager.removeProject(index);
+      renderProjects();
+      renderCurrentProject();
+    });
+
+    li.appendChild(nameSpan);
+    li.appendChild(deleteBtn);
     projectList.appendChild(li);
   });
 }

@@ -16,11 +16,23 @@ export const projectManager = (function(){
         addProject(project){
             projects.push(project);
         },
-        removeProject(index){
-            if(projects[index] === currentProj){
-                currentProj = projects[0] || null;
+        removeProject(index) {
+            if (projects.length === 1) {
+                alert("You must have at least one project.");
+                return;
             }
-            projects.splice(index, 1)
+            const isCurrent = projects[index] === currentProj;
+            projects.splice(index, 1);
+            
+            if (isCurrent) {
+                if (projects[index]) {
+                    currentProj = projects[index];
+                } else if (projects[index - 1]) {
+                    currentProj = projects[index - 1];
+                } else {
+                    currentProj = projects[0] || null;
+                }
+            }
         },
         getCurrentProject(){
             return currentProj;
