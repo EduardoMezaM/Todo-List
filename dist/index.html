@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="9cce2d6afb260ed9af5f.png" />
+    <title>Todo List</title>
+<script defer src="main.js"></script></head>
+<body>
+  <div id="sidebar">
+    <h2>Projects</h2>
+    <ul id="projectList"></ul>
+    <button id="addProjectBtn">+ Add Project</button>
+    
+    
+    <form id="projectForm" style="display: none;">
+      <input type="text" id="projectNameInput" placeholder="Project name" required />
+      <button type="submit">Add Project</button>
+    </form>
+  </div>
+
+  <div id="main">
+    <h2 id="projectTitle">Project Title</h2>
+    <ul id="todoList"></ul>
+    
+    <button id="showTodoFormBtn">Add Todo</button>
+    
+    <form id="todoForm" style="display: none;">
+      <input type="text" id="todoTitle" placeholder="Title" required />
+      <textarea id="todoDescription" placeholder="Description (optional)"></textarea>
+      
+      <input type="date" id="todoDueDate" />
+      
+      <select id="todoPriority">
+        <option value="low">Low</option>
+        <option value="normal" selected>Normal</option>
+        <option value="high">High</option>
+      </select>
+      
+      <button type="submit" style="margin-top: 10px;">Add Todo</button>
+    </form>  
+  </div>
+</body>
+</html>
