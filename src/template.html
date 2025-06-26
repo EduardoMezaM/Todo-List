@@ -10,11 +10,12 @@
     <h2>Projects</h2>
     <ul id="projectList"></ul>
     <button id="addProjectBtn">+ Add Project</button>
-
-<form id="projectForm" style="display: none; margin-top: 10px;">
-  <input type="text" id="projectNameInput" placeholder="Project name" required />
-  <button type="submit">Add Project</button>
-</form>
+    
+    
+    <form id="projectForm" style="display: none; margin-top: 10px;">
+      <input type="text" id="projectNameInput" placeholder="Project name" required />
+      <button type="submit">Add Project</button>
+    </form>
   </div>
 
   <div id="main">
@@ -24,10 +25,19 @@
     <button id="showTodoFormBtn">Add Todo</button>
     
     <form id="todoForm" style="display: none;">
-        <input type="text" id="todoTitle" placeholder="Todo title" required />
-        <button type="submit">Add Todo</button>
-    </form>
-    
+      <input type="text" id="todoTitle" placeholder="Title" required />
+      <textarea id="todoDescription" placeholder="Description (optional)"></textarea>
+      
+      <input type="date" id="todoDueDate" />
+      
+      <select id="todoPriority">
+        <option value="low">Low</option>
+        <option value="normal" selected>Normal</option>
+        <option value="high">High</option>
+      </select>
+      
+      <button type="submit">Add Todo</button>
+    </form>  
   </div>
 </body>
 </html>

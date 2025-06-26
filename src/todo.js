@@ -1,4 +1,4 @@
-export function createTodo(title, description, dueDate, priority, completed = false){
+export function createTodo(title, description, dueDate, priority = 'normal', completed = false){
     return{
         title,
         description,

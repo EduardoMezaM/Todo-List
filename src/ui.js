@@ -84,15 +84,23 @@ export function setupAddTodo() {
 
     const title = titleInput.value.trim();
     if (!title) return;
-
-    const newTodo = createTodo(title, '', '', 'normal', false);
+    
+    const description = document.getElementById('todoDescription').value.trim();
+    const dueDate = document.getElementById('todoDueDate').value;
+    const priority = document.getElementById('todoPriority').value;
+    const newTodo = createTodo(title, description, dueDate, priority, false);
     const currentProject = projectManager.getCurrentProject();
 
     currentProject.addTodo(newTodo);
     renderCurrentProject();
-
+    
     titleInput.value = '';
+    document.getElementById('todoDescription').value = '';
+    document.getElementById('todoDueDate').value = '';
+    document.getElementById('todoPriority').value = 'normal';
+
     form.style.display = 'none';
     showFormBtn.style.display = 'inline-block';
+    
   });
 }

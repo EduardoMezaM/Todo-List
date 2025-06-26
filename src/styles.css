@@ -160,3 +160,18 @@ body {
 #projectForm button[type="submit"]:hover {
   background-color: #218838;
 }
+
+#todoForm textarea,
+#todoForm input[type="date"],
+#todoForm select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  flex: 1;
+}
+
+#todoForm textarea {
+  resize: vertical;
+  min-height: 60px;
+}
