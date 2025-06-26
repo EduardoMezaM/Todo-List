@@ -108,7 +108,7 @@ export function setupAddTodo() {
   const titleInput = document.getElementById('todoTitle');
 
   showFormBtn.addEventListener('click', () => {
-    form.style.display = 'block';
+    form.style.display = 'flex';
     showFormBtn.style.display = 'none';
     titleInput.focus();
   });
