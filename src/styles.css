@@ -213,11 +213,12 @@ body {
 }
 
 .delete-todo:hover {
-  color: #a71d2a;
+  color: #a71d1d;
 }
 
 #todoList p {
   margin: 6px 0;
+  text-align: center;
 }
 
 #todoDescription{
